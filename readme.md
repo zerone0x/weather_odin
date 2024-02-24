@@ -1,0 +1,1 @@
+- [API doc](https://www.weatherapi.com/my/)

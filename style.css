@@ -1,0 +1,96 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+    flex:1;
+
+}
+.todayWeather {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+  .todayWeather header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .todayWeather img {
+    width: 80px; /* You can adjust this as needed */
+    height: auto;
+  }
+  
+  .todayWeather p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  
+  /* Specific styles for different paragraphs if needed */
+  .todayWeather p.temperature {
+    font-size: 30px;
+    color: #ff6f61;
+    margin: 5px 0;
+  }
+  
+  .todayWeather p.feels-like {
+    font-size: 16px;
+    color: #888;
+    margin: 0;
+  }
+  
+  .todayWeather p.last-updated {
+    font-size: 14px;
+    color: #555;
+    margin-top: 20px;
+  }
+
+.forcast{
+    background-color: #f9f9f9;
+    padding: 20px;
+    min-width: 150px;
+    margin: 10px;
+    text-align: center;
+}
+
+.showmore{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    font-family: 'Arial', sans-serif;
+    flex-wrap: wrap;
+
+}
+input{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    margin: 10px;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
