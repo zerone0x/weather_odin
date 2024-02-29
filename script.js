@@ -33,12 +33,19 @@ function getWeatherToday(city){
     todayweather.appendChild(loadingimg)
     getWeather(city).then(data => {
     todayweather.innerHTML = ''
+    const {location:{name}, 
+    current:{condition:{icon},
+    temp_c,
+    feelslike_c,
+    last_updated
+    },
+    } = data
     const html = `
-    <header> ${data.location.name} </header>
-    <img src="${data.current.condition.icon}" alt="weather icon">
-    <p>${data.current.temp_c}°C </p>
-    <p> It feels like ${data.current.feelslike_c}°C </p>
-    <p> Last updated at ${data.current.last_updated}</p>
+    <header> ${name} </header>
+    <img src="${icon}" alt="weather icon">
+    <p>${temp_c}°C </p>
+    <p> It feels like ${feelslike_c}°C </p>
+    <p> Last updated at ${last_updated}</p>
     
 
     `
@@ -56,18 +63,21 @@ function getWeekWeatherForMore(city){
     getWeatherForMore(city).then(data => {
         showmore.innerHTML = ''
         const showWeekWeather = document.getElementById('showWeekWeather')
-        
         const forcastData = data.forecast.forecastday
-        
         forcastData.forEach(EveryForcast => {
+            
+            const {date,
+                day:{condition: {icon},
+                maxtemp_c,
+                mintemp_c,avgtemp_c}} =  EveryForcast
             console.log(EveryForcast)
             const html = `
             <div class="forcast">
-            <header> ${EveryForcast.date} </header>
-            <img src="${EveryForcast.day.condition.icon}" alt="weather icon">
-            <p> Max temperature: ${EveryForcast.day.maxtemp_c}°C </p>
-            <p> Min temperature: ${EveryForcast.day.mintemp_c}°C </p>
-            <p> Average temperature: ${EveryForcast.day.avgtemp_c}°C </p>
+            <header> ${date} </header>
+            <img src="${icon}" alt="weather icon">
+            <p> Max temperature: ${maxtemp_c}°C </p>
+            <p> Min temperature: ${mintemp_c}°C </p>
+            <p> Average temperature: ${avgtemp_c}°C </p>
             </div>
             `
             showmore.insertAdjacentHTML('beforeend', html)
@@ -90,7 +100,7 @@ function getWeekWeatherForMore(city){
 getWeatherToday('Guangzhou')
 getWeekWeatherForMore('Guangzhou')
     
-    // console.log(getWeatherForMore('Guangzhou'))
+
 const city = document.getElementById('city')
 city.addEventListener('change', function(){
     console.log('start to load' + city.value)
